@@ -49,11 +49,14 @@ SpecialBonus = int(input("Any extra multipliers (check wiki): "))
 
 FinalDamage = int(BaseDamage * (1 + SpecialBonus/100))
 
-WepSpeed = int(input("\nWhat is your weapon speed in ticks?: "))
+WepSpeed = int(input("\nWhat is your weapon speed in ticks? One tick = 0.6s | Whip is 4, so on, just wiki it: "))
 AttacksPerHour = int(6000/WepSpeed)
 
+PlayTime = (int(input("\nHow many seconds will you play for? - ")))
+numAttacksTotal = int(PlayTime/WepSpeed)
+
 XPEarned = 0
-for x in range (0, AttacksPerHour):
+for x in range (0, numAttacksTotal):
     RNG = random.randint(0,100)
     if RNG > (100 - (Result * 100)):
         Damage = random.randint(0,FinalDamage)
